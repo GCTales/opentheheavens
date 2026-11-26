@@ -17,28 +17,29 @@ using System.Security.Permissions;
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
 
 //Reminder: Don't call debug/info log methods outside of Debug
+//Reminder: Try not to add methods to OpenTheHeavens. Most everything in this class should exclusively call methods of other classes
+/*
+Next: Figure out the life hand pickuppicker to grant 2/2/1 choices instead of 3/3/3
+Next: Make Life hand give proper rewards: 0 -> 1/2w -> 1/2w + 1/2w ->1/2w + 1/2g -> 1/2w + 1/2g + 1h
+Next: Risk Of Options support
+Next: ProperSave support
+Next: Cleanup on OpenTheHeavens.cs
 
-//Next: Figure out the life hand pickuppicker to grant 2/2/1 choices instead of 3/3/3
-//Next: Make Life hand give proper rewards: 0 -> 1/2w -> 1/2w + 1/2w ->1/2w + 1/2g -> 1/2w + 1/2g + 1h
-//Next: Risk Of Options support
-//Next: ProperSave support
-//Next: Cleanup on OpenTheHeavens.cs
+Sometime: should have figured out SB-T music by this point, probs a separate mod
+Sometime???: fix the concommand to see if the event in ConfigManager works
 
-//Sometime: should have figured out SB-T music by this point, probs a separate mod
-//Sometime???: fix the concommand to see if the event in ConfigManager works
-
-//Later: Nedd to decide if Imperishables should be standalone or to develop it as part of this mod. prob standalone but i need that damn recycler rework here
+Later: Need to decide if Imperishables should be standalone or to develop it as part of this mod. prob standalone but i need that damn recycler rework here
 
 
-//Notetaking: [Redacted: Boss Stage Reworks]
+Notetaking: [Redacted: Boss Stage Reworks]
 
-//Notetaking: Could remove newt altars and lock behind Artifact of Discontinuity
-//Notetaking: Newt would be a pain in the ass to balance, esp. when trying to enforce red scarcity.
-//Notetaking: Would lock out Vields tho. Not a huge loss but it should probably go somewhere else too, like appending to void seeds.
-//Remark: don't run with that idea yet.
-//Remark: maybe do actually its not that deep
-//Remark: I KNEW THERE WAS A REASON I SAID NOT TO
-
+Notetaking: Could remove newt altars and lock behind Artifact of Discontinuity
+Notetaking: Newt would be a pain in the ass to balance, esp. when trying to enforce red scarcity.
+Notetaking: Would lock out Vields tho. Not a huge loss but it should probably go somewhere else too, like appending to void seeds.
+Remark: don't run with that idea yet.
+Remark: maybe do actually its not that deep
+Remark: I KNEW THERE WAS A REASON I SAID NOT TO
+*/
 
 namespace Open_The_Heavens
 {
