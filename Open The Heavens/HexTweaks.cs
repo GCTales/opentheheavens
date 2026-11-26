@@ -63,15 +63,22 @@ namespace Open_The_Heavens
 
         internal static void LoadAssets()
         {
-            InteractableSpawnCard isc_hexReliquary = Addressables.LoadAssetAsync<InteractableSpawnCard>("RoR2/DLC4/HollowChest/iscHollowChest.asset").WaitForCompletion();
-            isc_hexReliquary.maxSpawnsPerStage = 1;
+            if (ConfigManager.RestrictReliquaryPerStage.Value)
+            {
+                InteractableSpawnCard isc_hexReliquary = Addressables.LoadAssetAsync<InteractableSpawnCard>("RoR2/DLC4/HollowChest/iscHollowChest.asset").WaitForCompletion();
+                isc_hexReliquary.maxSpawnsPerStage = 1;
+            }
             //remove pages from Hallow and hallow from White/Green
-            BasicPickupDropTable bdt_handLife_hallow = Addressables.LoadAssetAsync<BasicPickupDropTable>("RoR2/DLC4/bdtHallowedCauldron_HighGrade.asset").WaitForCompletion();
-            bdt_handLife_hallow.pageWeight = 0;
-            BasicPickupDropTable bdt_handLife_white = Addressables.LoadAssetAsync<BasicPickupDropTable>("RoR2/DLC4/bdtHallowedCauldron_LowGrade.asset").WaitForCompletion();
-            bdt_handLife_white.cursedWeight = 0;
-            BasicPickupDropTable bdt_handLife_green = Addressables.LoadAssetAsync<BasicPickupDropTable>("RoR2/DLC4/bdtHallowedCauldron_MediumGrade.asset").WaitForCompletion();
-            bdt_handLife_green.cursedWeight = 0;
+            if (ConfigManager.RemoveErroneousCauldronTiers.Value)
+            {
+                BasicPickupDropTable bdt_handLife_hallow = Addressables.LoadAssetAsync<BasicPickupDropTable>("RoR2/DLC4/bdtHallowedCauldron_HighGrade.asset").WaitForCompletion();
+                bdt_handLife_hallow.pageWeight = 0;
+                BasicPickupDropTable bdt_handLife_white = Addressables.LoadAssetAsync<BasicPickupDropTable>("RoR2/DLC4/bdtHallowedCauldron_LowGrade.asset").WaitForCompletion();
+                bdt_handLife_white.cursedWeight = 0;
+                BasicPickupDropTable bdt_handLife_green = Addressables.LoadAssetAsync<BasicPickupDropTable>("RoR2/DLC4/bdtHallowedCauldron_MediumGrade.asset").WaitForCompletion();
+                bdt_handLife_green.cursedWeight = 0;
+            }
+            
         }
 
         private static void CacheReliquaryInteractor(On.RoR2.PurchaseInteraction.orig_OnInteractionBegin orig, PurchaseInteraction self, Interactor activator)

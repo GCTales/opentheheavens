@@ -19,7 +19,10 @@ namespace Open_The_Heavens
         public static ConfigEntry<bool> EnableForceHexPickupCauldron;
         public static ConfigEntry<bool> EnableForceHexPickupReliquary;
         public static ConfigEntry<bool> DisableSaleStarReliquary;
+        //Remember to update when this updates per player count:
+        public static ConfigEntry<bool> RestrictReliquaryPerStage;
         public static ConfigEntry<bool> EnableTweakedCauldronPickups;
+        public static ConfigEntry<bool> RemoveErroneousCauldronTiers;
 
         //private static ConfigFile ItemConfig;
 
@@ -55,7 +58,9 @@ namespace Open_The_Heavens
             EnableForceHexPickupCauldron = GameplayConfig.Bind<bool>("Hexes", "Enable Forcing Hex Pickup (Shrine)", true, "Whether hexes gained from a Hallowed Shrine should be forced into the interactor's inventory. Also prevents the Hand of Death from closing to allow each player to interact with it.\nOveridden by the global setting." + reloadText);
             EnableForceHexPickupReliquary = GameplayConfig.Bind<bool>("Hexes", "Enable Forcing Hex Pickup (Reliquary)", true, "Whether hexes gained from a Concept Reliquary should be forced into the interactor's inventory. Overriden by the global setting.");
             DisableSaleStarReliquary = GameplayConfig.Bind<bool>("Hexes", "Disallow Sale Star On Concept Reliquary", true, "Prevents Sale Star from triggering on Concept Reliquaries");
+            RestrictReliquaryPerStage = GameplayConfig.Bind<bool>("Hexes", "Restrict Concept Reliquary Spawns", true, "Limits Concept Reliquaries to one spawn per stage." + reloadText);
             EnableTweakedCauldronPickups = GameplayConfig.Bind<bool>("Hexes", "Enable Hallowed Shrine Reward Changes", true, "Whether to change the reward pool of the Hand of Life to only take 5 Hexes from players' inventories, and adjust the rewards to account for less total hexes availiable.");
+            RemoveErroneousCauldronTiers = GameplayConfig.Bind<bool>("Hexes", "Remove Erroneous Items From Hallowed Shrine", true, "Removes Hallowed items from the Low (White) / Mid (Green) tier drop tables, and the really low chance of a page from the High (Hallow) table" + reloadText);
         }
         private static void WriteItemConfig()
         {
