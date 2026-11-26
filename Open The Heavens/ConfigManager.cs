@@ -11,7 +11,7 @@ namespace Open_The_Heavens
 {
     public static class ConfigManager
     {
-        private static string reloadText = " Changing this setting necessitates a game restart";
+        private const string reloadText = "\nChanging this setting necessitates a game restart";
         private static ConfigFile GameplayConfig;
         public static ConfigEntry<bool> EnableHexAmbientLevel;
         public static ConfigEntry<float> HexLevelFactor;
@@ -19,6 +19,7 @@ namespace Open_The_Heavens
         public static ConfigEntry<bool> EnableForceHexPickupCauldron;
         public static ConfigEntry<bool> EnableForceHexPickupReliquary;
         public static ConfigEntry<bool> DisableSaleStarReliquary;
+        public static ConfigEntry<bool> EnableTweakedCauldronPickups;
 
         //private static ConfigFile ItemConfig;
 
@@ -54,6 +55,7 @@ namespace Open_The_Heavens
             EnableForceHexPickupCauldron = GameplayConfig.Bind<bool>("Hexes", "Enable Forcing Hex Pickup (Shrine)", true, "Whether hexes gained from a Hallowed Shrine should be forced into the interactor's inventory. Also prevents the Hand of Death from closing to allow each player to interact with it.\nOveridden by the global setting." + reloadText);
             EnableForceHexPickupReliquary = GameplayConfig.Bind<bool>("Hexes", "Enable Forcing Hex Pickup (Reliquary)", true, "Whether hexes gained from a Concept Reliquary should be forced into the interactor's inventory. Overriden by the global setting.");
             DisableSaleStarReliquary = GameplayConfig.Bind<bool>("Hexes", "Disallow Sale Star On Concept Reliquary", true, "Prevents Sale Star from triggering on Concept Reliquaries");
+            EnableTweakedCauldronPickups = GameplayConfig.Bind<bool>("Hexes", "Enable Hallowed Shrine Reward Changes", true, "Whether to change the reward pool of the Hand of Life to only take 5 Hexes from players' inventories, and adjust the rewards to account for less total hexes availiable.");
         }
         private static void WriteItemConfig()
         {
